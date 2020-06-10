@@ -1,13 +1,13 @@
 <template>
   <div class="p-4" id="source-list">
     <div class="absolute top-0 p-4">
-      <label>
+      <!-- <label>
         Filter
         <input v-model="filterTerm"
         class="p-2 border border-black"
         type="text"
         @input="$emit('filter-term-updated', filterTerm)">
-      </label>
+      </label> -->
       <ul>
         <li class="py-2">
           <input type="checkbox"

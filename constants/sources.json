@@ -14,5 +14,13 @@
   {
     "name": "Hacker News",
     "url": "https://news.ycombinator.com/rss"
+  },
+  {
+    "name": "Hacker News - Front Page",
+    "url": "https://hnrss.org/frontpage?count=40"
+  },
+  {
+    "name": "Hacker News - +350 Points",
+    "url": "https://hnrss.org/newest?points=350&count=40"
   }
 ]

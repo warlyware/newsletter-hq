@@ -1,6 +1,7 @@
 export const state = () => ({
+  loading: false,
   selectedUrls: [],
-  fetchedData: {},
+  fetchedData: [],
   selectedDisplayOptions: []
 })
 
@@ -20,6 +21,9 @@ export const mutations = {
   updateDisplayOptions(state, options) {
     state.selectedDisplayOptions = options
   },
+  updateLoading(state, loading) {
+    state.loading = loading
+  },
   addSource(state, url) {
     state.selectedUrls.push(url)
   },
@@ -30,24 +34,31 @@ export const mutations = {
 
 export const actions = {
   async fetchSourceData({ state, commit }) {
-    const reqs = state.selectedUrls.map((url) => {
-      return this.$axios.get('https://api.rss2json.com/v1/api.json', {
-        params: {
-          rss_url: url,
-          api_key: process.env.RSS_2_JSON_API_KEY,
-          count: 20
-        }
+    commit('updateLoading', true)
+    try {
+      const reqs = state.selectedUrls.map((url) => {
+        return this.$axios.get('https://api.rss2json.com/v1/api.json', {
+          params: {
+            rss_url: url,
+            api_key: process.env.RSS_2_JSON_API_KEY,
+            count: 40
+          }
+        })
       })
-    })
 
-    const responses = await Promise.all(reqs)
+      const responses = await Promise.all(reqs)
 
-    const allItems = responses.map(({ data }) => {
-      const { feed, items } = data
-      return items.map(item => ({ ...item, feed }))
-    })
+      const allItems = responses.map(({ data }) => {
+        const { feed, items } = JSON.parse(JSON.stringify(data))
+        return items.map(item => ({ ...item, feed }))
+      })
 
-    commit('updateFetchedData', ...allItems)
-    return allItems
+      commit('updateFetchedData', ...[allItems.flat()])
+      return allItems
+    } catch (error) {
+      return console.error(error)
+    } finally {
+      commit('updateLoading', false)
+    }
   }
 }
