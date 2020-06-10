@@ -37,7 +37,13 @@ export const actions = {
 
     const responses = await Promise.all(reqs)
 
-    console.log(responses)
-    return responses
+    const allItems = {}
+    responses.forEach(({ data }) => {
+      const { feed, items } = data
+      allItems[feed.title] ? allItems[feed.title].push(items) : allItems[feed.title] = items
+    })
+
+    console.log(allItems)
+    return allItems
   }
 }

@@ -3,6 +3,7 @@
     <ul>
       <li v-for="source in sources" :key="source.url">
         <input type="checkbox"
+        :checked="true"
         :value="source.url"
         v-model="selectedSources"> {{ source.name }}
       </li>
@@ -13,22 +14,24 @@
 <script>
 import { mapMutations, mapActions } from 'vuex'
 
+const sources = [{
+  name: 'Ars Technica - Technology Lab',
+  url: 'http://feeds.arstechnica.com/arstechnica/technology-lab'
+}, {
+  name: 'Ars Technica - Gear and Gadgets',
+  url: 'http://feeds.arstechnica.com/arstechnica/gadgets'
+}, {
+  name: 'Ars Technica - Features',
+  url: 'http://feeds.arstechnica.com/arstechnica/features'
+}, {
+  name: 'Hacker News',
+  url: 'https://news.ycombinator.com/rss'
+}]
+
 export default {
   data: () => ({
-    sources: [{
-      name: 'Ars Technica - Technology Lab',
-      url: 'http://feeds.arstechnica.com/arstechnica/technology-lab'
-    }, {
-      name: 'Ars Technica - Gear and Gadgets',
-      url: 'http://feeds.arstechnica.com/arstechnica/gadgets'
-    }, {
-      name: 'Ars Technica - Features',
-      url: 'http://feeds.arstechnica.com/arstechnica/features'
-    }, {
-      name: 'Hacker News',
-      url: 'https://news.ycombinator.com/rss'
-    }],
-    selectedSources: []
+    sources,
+    selectedSources: sources.map(({ url }) => url)
   }),
   methods: {
     ...mapMutations([
