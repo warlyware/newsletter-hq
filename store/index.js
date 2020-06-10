@@ -1,6 +1,7 @@
 export const state = () => ({
   selectedUrls: [],
-  fetchedData: {}
+  fetchedData: {},
+  selectedDisplayOptions: []
 })
 
 export const getters = {
@@ -10,9 +11,14 @@ export const getters = {
 }
 
 export const mutations = {
+  updateFetchedData(state, fetchedData) {
+    state.fetchedData = fetchedData
+  },
   updateSources(state, sources) {
-    console.log('updateSources', sources)
     state.selectedUrls = sources
+  },
+  updateDisplayOptions(state, options) {
+    state.selectedDisplayOptions = options
   },
   addSource(state, url) {
     state.selectedUrls.push(url)
@@ -23,8 +29,7 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchSourceData({ state }) {
-    console.log('fetching urls: ', state.selectedUrls)
+  async fetchSourceData({ state, commit }) {
     const reqs = state.selectedUrls.map((url) => {
       return this.$axios.get('https://api.rss2json.com/v1/api.json', {
         params: {
@@ -37,13 +42,12 @@ export const actions = {
 
     const responses = await Promise.all(reqs)
 
-    const allItems = {}
-    responses.forEach(({ data }) => {
+    const allItems = responses.map(({ data }) => {
       const { feed, items } = data
-      allItems[feed.title] ? allItems[feed.title].push(items) : allItems[feed.title] = items
+      return items.map(item => ({ ...item, feed }))
     })
 
-    console.log(allItems)
+    commit('updateFetchedData', ...allItems)
     return allItems
   }
 }

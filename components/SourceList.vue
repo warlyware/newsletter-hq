@@ -1,5 +1,22 @@
 <template>
-  <div id="source-list">
+  <div class="p-4" id="source-list">
+    <div class="absolute top-0 p-4">
+      <label>
+        Filter
+        <input v-model="filterTerm"
+        class="p-2 border border-black"
+        type="text"
+        @input="$emit('filter-term-updated', filterTerm)">
+      </label>
+      <ul>
+        <li class="py-2">
+          <input type="checkbox"
+          v-model="displayOptions"
+          value="show-content"> show content
+        </li>
+      </ul>
+    </div>
+
     <ul>
       <li v-for="source in sources" :key="source.url">
         <input type="checkbox"
@@ -14,39 +31,37 @@
 <script>
 import { mapMutations, mapActions } from 'vuex'
 
-const sources = [{
-  name: 'Ars Technica - Technology Lab',
-  url: 'http://feeds.arstechnica.com/arstechnica/technology-lab'
-}, {
-  name: 'Ars Technica - Gear and Gadgets',
-  url: 'http://feeds.arstechnica.com/arstechnica/gadgets'
-}, {
-  name: 'Ars Technica - Features',
-  url: 'http://feeds.arstechnica.com/arstechnica/features'
-}, {
-  name: 'Hacker News',
-  url: 'https://news.ycombinator.com/rss'
-}]
+import sources from '~/constants/sources.json'
 
 export default {
   data: () => ({
     sources,
-    selectedSources: sources.map(({ url }) => url)
+    selectedSources: [],
+    filterTerm: '',
+    displayOptions: []
   }),
+  watch: {
+    selectedSources(newVal) {
+      this.updateSources(newVal)
+      this.fetchSourceData()
+    },
+    displayOptions(newVal) {
+      this.updateDisplayOptions(newVal)
+    }
+  },
+  // mounted() {
+  //   this.selectedSources = sources.map(({ url }) => url)
+  //   this.updateSources(sources)
+  //   this.fetchSourceData()
+  // },
   methods: {
     ...mapMutations([
+      'updateDisplayOptions',
       'updateSources'
     ]),
     ...mapActions([
       'fetchSourceData'
     ])
-  },
-  watch: {
-    selectedSources(newVal) {
-      console.log('newVal', newVal)
-      this.updateSources(newVal)
-      this.fetchSourceData()
-    }
   }
 }
 </script>
