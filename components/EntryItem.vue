@@ -7,9 +7,11 @@
       <span v-html="entryData.feed.title" />
     </div>
     <div class="p-4">
-      <div class="font-bold" v-html="entryData.title">
-        {{entryData.title}}
-      </div>
+      <a :href="entryData.link" target="_blank">
+        <div class="font-bold" v-html="entryData.title">
+          {{entryData.title}}
+        </div>
+      </a>
       <div class="italic">
         <a :href="entryData.link" target="_blank">Link</a> --
         ({{entryData.pubDate}})
