@@ -1,9 +1,9 @@
 <template>
   <div>
-    <top-nav class="absolute w-full" @filter-term-updated="updateFilter" />
+    <top-nav class="w-full" @filter-term-updated="updateFilter" />
     {{ filterTerm }}
-    <div class="container flex">
-      <source-list class="w-1/5" />
+    <div class="app-container flex">
+      <source-list class="w-1/5 border-r min-h-screen pt-32" />
       <entries-list class="w-4/5" />
     </div>
   </div>
@@ -33,9 +33,7 @@ export default {
 </script>
 
 <style>
-
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
+.app-container {
+  @apply min-h-screen flex justify-center items-center text-center;
 }
-
 </style>

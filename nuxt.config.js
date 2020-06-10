@@ -15,6 +15,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  env: {
+    RSS_2_JSON_API_KEY: process.env.RSS_2_JSON_API_KEY
+  },
   /*
   ** Customize the progress-bar color
   */

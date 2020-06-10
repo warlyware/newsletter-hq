@@ -6,7 +6,7 @@
     <input v-model="filterTerm"
     class="p-2 border border-black"
     type="text"
-    @input="emitInput">
+    @input="$emit('filter-term-updated', filterTerm)">
   </div>
 </template>
 
@@ -14,13 +14,7 @@
 export default {
   data: () => ({
     filterTerm: ''
-  }),
-  methods: {
-    emitInput(text) {
-      console.log('emitInput')
-      this.$emit('filter-term-updated', this.filterTerm)
-    }
-  }
+  })
 }
 </script>
 

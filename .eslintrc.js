@@ -16,6 +16,7 @@ module.exports = {
     'vue/max-attributes-per-line': 0,
     'vue/html-indent': 0,
     'vue/html-closing-bracket-newline': 0,
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    'vue/attributes-order': 0
   }
 }
