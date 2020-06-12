@@ -1,6 +1,6 @@
 <template>
   <div class="app-container flex">
-    <source-list class="w-1/5 border-r min-h-screen pt-32" />
+    <source-list class="w-1/5 border-r min-h-screen pt-16" />
     <entries-list class="w-4/5" />
   </div>
 </template>

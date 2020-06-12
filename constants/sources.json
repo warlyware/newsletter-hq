@@ -1,26 +1,32 @@
 [
   {
-    "name": "Ars Technica - Technology Lab",
-    "url": "http://feeds.arstechnica.com/arstechnica/technology-lab"
+    "name": "Ars Technica: Technology Lab",
+    "url": "http://feeds.arstechnica.com/arstechnica/technology-lab",
+    "group": "Ars Technica"
   },
   {
-    "name": "Ars Technica - Gear and Gadgets",
-    "url": "http://feeds.arstechnica.com/arstechnica/gadgets"
+    "name": "Ars Technica: Gear and Gadgets",
+    "url": "http://feeds.arstechnica.com/arstechnica/gadgets",
+    "group": "Ars Technica"
   },
   {
-    "name": "Ars Technica - Features",
-    "url": "http://feeds.arstechnica.com/arstechnica/features"
+    "name": "Ars Technica: Features",
+    "url": "http://feeds.arstechnica.com/arstechnica/features",
+    "group": "Ars Technica"
   },
   {
-    "name": "Hacker News",
-    "url": "https://news.ycombinator.com/rss"
+    "name": "Hacker News: Official",
+    "url": "https://news.ycombinator.com/rss",
+    "group": "Hacker News"
   },
   {
-    "name": "Hacker News - Front Page",
-    "url": "https://hnrss.org/frontpage?count=40"
+    "name": "Hacker News: Front Page",
+    "url": "https://hnrss.org/frontpage",
+    "group": "Hacker News"
   },
   {
-    "name": "Hacker News - +350 Points",
-    "url": "https://hnrss.org/newest?points=350&count=40"
+    "name": "Hacker News: Newst",
+    "url": "https://hnrss.org/newest?points=350&count=40",
+    "group": "Hacker News"
   }
 ]

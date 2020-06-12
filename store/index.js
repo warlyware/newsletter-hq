@@ -2,7 +2,8 @@ export const state = () => ({
   loading: false,
   selectedUrls: [],
   fetchedData: [],
-  selectedDisplayOptions: []
+  selectedDisplayOptions: [],
+  selectedFilterOptions: []
 })
 
 export const getters = {
@@ -20,6 +21,9 @@ export const mutations = {
   },
   updateDisplayOptions(state, options) {
     state.selectedDisplayOptions = options
+  },
+  updateFilterOptions(state, options) {
+    state.selectedFilterOptions = options
   },
   updateLoading(state, loading) {
     state.loading = loading

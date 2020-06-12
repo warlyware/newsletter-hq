@@ -1,21 +1,9 @@
 <template>
   <div class="p-4" id="source-list">
-    <div class="absolute top-0 p-4">
-      <!-- <label>
-        Filter
-        <input v-model="filterTerm"
-        class="p-2 border border-black"
-        type="text"
-        @input="$emit('filter-term-updated', filterTerm)">
-      </label> -->
-      <ul>
-        <li class="py-2">
-          <input type="checkbox"
-          v-model="displayOptions"
-          value="show-content"> show content
-        </li>
-      </ul>
-    </div>
+    <display-options />
+    <request-options />
+
+    <hr class="my-4">
 
     <ul>
       <li v-for="source in sources" :key="source.url">
@@ -31,29 +19,25 @@
 <script>
 import { mapMutations, mapActions } from 'vuex'
 
+import DisplayOptions from '~/components/DisplayOptions'
+import RequestOptions from '~/components/RequestOptions'
 import sources from '~/constants/sources.json'
 
 export default {
+  components: {
+    RequestOptions,
+    DisplayOptions
+  },
   data: () => ({
     sources,
-    selectedSources: [],
-    filterTerm: '',
-    displayOptions: []
+    selectedSources: []
   }),
   watch: {
     selectedSources(newVal) {
       this.updateSources(newVal)
       this.fetchSourceData()
-    },
-    displayOptions(newVal) {
-      this.updateDisplayOptions(newVal)
     }
   },
-  // mounted() {
-  //   this.selectedSources = sources.map(({ url }) => url)
-  //   this.updateSources(sources)
-  //   this.fetchSourceData()
-  // },
   methods: {
     ...mapMutations([
       'updateDisplayOptions',

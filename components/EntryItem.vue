@@ -9,12 +9,12 @@
     <div class="p-4">
       <a :href="entryData.link" target="_blank">
         <div class="font-bold" v-html="entryData.title">
-          {{entryData.title}}
+          {{ entryData.title }}
         </div>
       </a>
       <div class="italic">
         <a :href="entryData.link" target="_blank">Link</a> --
-        ({{entryData.pubDate}})
+        ({{ publishDate }})
       </div>
       <div class="py-4 -mx-2 clearfix">
         <div v-for="category in entryData.categories"
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapState } from 'vuex'
 
 export default {
@@ -40,9 +41,12 @@ export default {
       required: true
     }
   },
-  computed: mapState({
-    options: 'selectedDisplayOptions'
-  }),
+  computed: {
+    ...mapState({
+      options: 'selectedDisplayOptions'
+    }),
+    publishDate() { return moment(this.entryData.pubDate).format('MMMM Do @ h:mm:ss a') }
+  },
   mounted() {
     console.log(this.entryData)
   }
