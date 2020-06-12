@@ -1,32 +1,30 @@
-[
-  {
-    "name": "Ars Technica: Technology Lab",
-    "url": "http://feeds.arstechnica.com/arstechnica/technology-lab",
-    "group": "Ars Technica"
-  },
-  {
-    "name": "Ars Technica: Gear and Gadgets",
-    "url": "http://feeds.arstechnica.com/arstechnica/gadgets",
-    "group": "Ars Technica"
-  },
-  {
-    "name": "Ars Technica: Features",
-    "url": "http://feeds.arstechnica.com/arstechnica/features",
-    "group": "Ars Technica"
-  },
-  {
-    "name": "Hacker News: Official",
-    "url": "https://news.ycombinator.com/rss",
-    "group": "Hacker News"
-  },
-  {
-    "name": "Hacker News: Front Page",
-    "url": "https://hnrss.org/frontpage",
-    "group": "Hacker News"
-  },
-  {
-    "name": "Hacker News: Newst",
-    "url": "https://hnrss.org/newest?points=350&count=40",
-    "group": "Hacker News"
-  }
-]
+{
+  "Ars Technica": [
+    {
+      "name": "Technology Lab",
+      "url": "http://feeds.arstechnica.com/arstechnica/technology-lab"
+    },
+    {
+      "name": "Gear and Gadgets",
+      "url": "http://feeds.arstechnica.com/arstechnica/gadgets"
+    },
+    {
+      "name": "Features",
+      "url": "http://feeds.arstechnica.com/arstechnica/features"
+    }
+  ],
+  "Hacker News": [
+    {
+      "name": "Official",
+      "url": "https://news.ycombinator.com/rss"
+    },
+    {
+      "name": "Front Page",
+      "url": "https://hnrss.org/frontpage"
+    },
+    {
+      "name": "Newest",
+      "url": "https://hnrss.org/newest"
+    }
+  ]
+}

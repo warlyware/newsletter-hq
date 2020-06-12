@@ -17,6 +17,7 @@ module.exports = {
     'vue/html-indent': 0,
     'vue/html-closing-bracket-newline': 0,
     'space-before-function-paren': 0,
-    'vue/attributes-order': 0
+    'vue/attributes-order': 0,
+    'arrow-parens': 0
   }
 }
