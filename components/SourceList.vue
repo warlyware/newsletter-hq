@@ -1,13 +1,17 @@
 <template>
   <div class="p-4" id="source-list">
-    <display-options />
-    <request-options />
+    <div class="bg-gray-800 p-2 rounded">
+      <div class="text-lg">
+        Options
+      </div>
+      <display-options />
+      <request-options />
+    </div>
 
     <hr class="my-4">
-
     <ul>
       <li v-for="(sourceGroup, groupName) in sources"
-      :key="groupName" class="p-2 mb-4 bg-blue-200 rounded">
+      :key="groupName" class="p-2 mb-4 bg-gray-800 rounded">
         <div class="text-lg">
           {{ groupName }}
         </div>
@@ -22,8 +26,9 @@
         <div v-if="groupName === 'Hacker News'"
         class="flex flex-col py-2">
           <div class="pb-2">
-            Count:
-            <input type="text" class="border border-black px-2 w-16"
+            Count: {{ hackerNewsOptions.count }}
+            <input type="range" class="w-full"
+            min="1" max="100" value="40"
             v-model="hackerNewsOptions.count">
           </div>
           <div class="pb-2">
