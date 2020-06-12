@@ -1,5 +1,6 @@
 <template>
   <div>
+    <base target="_blank">
     <nuxt />
   </div>
 </template>

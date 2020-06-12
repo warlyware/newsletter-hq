@@ -20,7 +20,7 @@
       <div class="py-4 -mx-2 clearfix">
         <div v-for="category in entryData.categories"
         :key="category"
-        class="bg-yellow-400 rounded p-1 px-2 mx-2 float-left text-gray-800 font-bold">
+        class="bg-yellow-400 rounded p-1 px-2 m-2 float-left text-gray-800 font-bold">
           <span v-html="category" />
         </div>
       </div>
