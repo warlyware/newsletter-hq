@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <div class="loadingio-spinner-spinner-iscy18clnd"><div class="ldio-1ola6lvyval">
+  <div class="bg-gray-600 rounded-full text-sm mx-4">
+    LOADING
+    <!-- <div class="loadingio-spinner-spinner-iscy18clnd"><div class="ldio-1ola6lvyval">
     <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
-    </div></div>
+    </div></div> -->
   </div>
 </template>
 

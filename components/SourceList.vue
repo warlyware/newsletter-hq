@@ -81,6 +81,9 @@ export default {
       this.fetchSourceData()
     }
   },
+  mounted() {
+    setTimeout(() => { this.selectedSources = this.$store.state.selectedUrls })
+  },
   methods: {
     ...mapMutations([
       'updateDisplayOptions',
