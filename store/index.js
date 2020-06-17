@@ -1,3 +1,5 @@
+import { fetchSourceData } from '~/utils'
+
 export const state = () => ({
   loading: false,
   selectedUrls: [],
@@ -39,28 +41,12 @@ export const mutations = {
 export const actions = {
   async fetchSourceData({ state, commit }) {
     commit('updateLoading', true)
+
     try {
-      const reqs = state.selectedUrls.map((url) => {
-        return this.$axios.get('https://api.rss2json.com/v1/api.json', {
-          params: {
-            rss_url: url,
-            api_key: process.env.RSS_2_JSON_API_KEY,
-            count: 40
-          }
-        })
-      })
-
-      const responses = await Promise.all(reqs)
-
-      const allItems = responses.map(({ data }) => {
-        const { feed, items } = JSON.parse(JSON.stringify(data))
-        return items.map(item => ({ ...item, feed }))
-      })
-
+      const allItems = await fetchSourceData(state)
       commit('updateFetchedData', ...[allItems.flat()])
-      return allItems
     } catch (error) {
-      return console.error(error)
+      console.error(error)
     } finally {
       commit('updateLoading', false)
     }

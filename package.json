@@ -14,8 +14,10 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/dotenv": "^1.4.0",
+    "axios": "^0.19.2",
     "moment": "^2.26.0",
     "nuxt": "^2.0.0",
+    "rss-parser": "^3.8.0",
     "vuex-persist": "^2.2.0",
     "vuex-persistedstate": "^3.0.1"
   },
