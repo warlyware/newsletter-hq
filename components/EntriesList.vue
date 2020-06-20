@@ -31,7 +31,7 @@ export default {
     entries() {
       if (this.selectedDisplayOptions.includes('last-7-days')) {
         return this.fetchedData.filter(entry => {
-          return moment(entry.pubDate).isAfter(moment(Date.now()).subtract(7, 'days'))
+          return moment(entry.date_published).isAfter(moment(Date.now()).subtract(7, 'days'))
         })
       }
       return this.fetchedData

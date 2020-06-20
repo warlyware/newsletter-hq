@@ -1,10 +1,10 @@
-import VuexPersistence from 'vuex-persist'
+// import VuexPersistence from 'vuex-persist'
 
 export default ({ store }) => {
-  window.onNuxtReady(() => {
-    new VuexPersistence({
-      /* your options */
-      storage: window.localStorage
-    }).plugin(store)
-  })
+  // window.onNuxtReady(() => {
+  //   new VuexPersistence({
+  //     /* your options */
+  //     storage: window.localStorage
+  //   }).plugin(store)
+  // })
 }
