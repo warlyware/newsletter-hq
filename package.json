@@ -16,7 +16,7 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/proxy": "^2.0.0",
     "axios": "^0.19.2",
-    "moment": "^2.26.0",
+    "moment": "^2.29.4",
     "nuxt": "^2.0.0",
     "rss-parser": "^3.8.0",
     "vuex-persist": "^2.2.0",
